@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Service</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body>
+    <h1 class="txt-centre pb-3 m-3 ">Hey there &#128075; check-out for 
+        <span class='text-danger text-uppercase'>Only</span>  
+             Positive <span class='text-success text-uppercase'>news</span></h1>
+
+    
+    <div class="container w-25 h-25">
+        <form action="/" method="post" class="d-flex" data-dashlane-rid="4011237b32677722" data-form-type="">
+            <input name="inputKeyword" class="form-control me-sm-2" type="text" placeholder="Search" data-dashlane-rid="111820635553e2df" pwa2-uuid="EDITOR/input-881-A62-41A57-A40" pwa-fake-editor="" data-form-type="">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit" data-dashlane-rid="25bdecbd4f662c1d" data-dashlane-label="true" data-form-type="">Search</button>
+        </form>
+    </div>
+
+    <% for(let i=0;i<Math.floor(article.length/2);i++) { %>
+        <div class="container d-flex">
+
+            <div class="card mb-3 m-4 w-50 ">
+                <h3 class="card-header"><%= article[i*2].title %></h3>
+                <image src="<%= article[i*2].image %>" class="d-block user-select-none" width="100%" height="200" style="font-size:1.125rem;text-anchor:middle">
+                <div class="card-body">
+                  <p class="card-text"><%= article[i*2].description %></p>
+                </div>
+    
+                <div class="card-body">
+                  <a href="<%= article[i*2].url %>" class="card-link"><%= article[i*2].url %></a>
+                </div>
+
+                <div class="card-footer text-muted">
+                    score : <%= article[i*2].rate %>
+                </div>
+        </div>
+
+            <div class="card mb-3 m-4 w-50 ">
+                <h3 class="card-header"><%= article[i*2+1].title %></h3>
+                <image src="<%= article[i*2+1].image %>" class="d-block user-select-none" width="100%" height="200" style="font-size:1.125rem;text-anchor:middle">
+                <div class="card-body">
+                    <p class="card-text"><%= article[i*2+1].description %></p>
+                </div>
+    
+                <div class="card-body">
+                    <a href="<%= article[i*2+1].url %>" class="card-link"><%= article[i*2+1].url %></a>
+                </div>
+
+                <div class="card-footer text-muted">
+                    score : <%= article[i*2+1].rate %>
+                </div>
+        </div>
+                  
+        </div>
+    
+    <% } %>
+
+
+        <% if( article.length%2===1 ) { %>
+            <div class="container d-flex">
+                <div class="card mb-3 m-4 w-50 ">
+                    <h3 class="card-header"><%= article[article.length-1].title %></h3>
+                    <image src="<%= article[article.length-1].image %>" class="d-block user-select-none" width="100%" height="200" style="font-size:1.125rem;text-anchor:middle">
+                    <div class="card-body">
+                    <p class="card-text"><%= article[article.length-1].description %></p>
+                    </div>
+
+                    <div class="card-body">
+                    <a href="<%= article[article.length-1].url %>" class="card-link"><%= article[article.length-1].url %></a>
+                    </div>
+
+                    <div class="card-footer text-muted">
+                        score : <%= article[article.length-1].rate %>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+
+
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
